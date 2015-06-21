@@ -17,6 +17,9 @@ function responder ($request, $response) {
   $response->writeHead(200, array('Content-Type'=>'text/html'));
   //$response->end('Nothing to see here');
   $filename = ltrim($request->getPath(), '/');
+  if (strlen($filename) == 0 || strpos($filename,'/') == strlen($filename)-1) {
+    $filename .= 'index.php';
+  }
   if (strpos($filename,'.php') === false) {
     $response->end('Nothing but php yet.');
   } else {
