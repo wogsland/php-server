@@ -14,9 +14,17 @@
   echo $test.'</br>';
 
   echo str_replace(' t', ' n', $test).'</br>';
-  ?>
 
-  Get ready for a parse error...</br>
+  // this comment is fine
+  $comment = 'this one too';// see!
+
+  /*
+   *
+   * Multiline comments are okay, too!
+
+   Seeeeeeeee
+   */
+  ?>
 
   Inline tags like <?php echo 'this one';?> work too!
 </body>

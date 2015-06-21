@@ -24,6 +24,7 @@ function responder ($request, $response) {
       $file = fopen(__DIR__.'/public/'.$filename, 'r');
       ob_start();
       $php_eval = false;
+      $php_multiline_comment = false;
       while ($line = fgets($file)) {
         if (($start = strpos($line, '<?php')) !== false && ($finish = strpos($line, '?>')) !== false) {
           // inline php
@@ -40,8 +41,16 @@ function responder ($request, $response) {
             continue;
           }
           if ($php_eval) {
-            eval($line);
+            if ($php_multiline_comment || strpos($line, '/*') !== false) {
+              $php_multiline_comment = true;
+              if (strpos($line, '*/') !== false) {
+                $php_multiline_comment = false;
+              }
+            } else {
+              eval($line);
+            }
           } else {
+            $php_multiline_comment = false;
             echo $line;
           }
         }
