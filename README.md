@@ -7,7 +7,7 @@ Okay so I know about hhvm, but this sounded like phun.
 
 ##Installation
 
-Install composer if you don't have it already. Then
+Install [composer](https://getcomposer.org/) if you don't have it already. Then
 
     composer install
     php run.php
