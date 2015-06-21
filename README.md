@@ -19,6 +19,7 @@ Start putting php files in the public directory and you'll find them available a
 
 1. Nothing that takes more than 1 line is supported. You'll need to minimize your class files before using them.
 2. ```die();```  and ```exit;``` will also shut down your server.
+3. Nothing other than php files are supported.
 3. Others???
 
 ##Contributing
