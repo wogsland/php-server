@@ -12,7 +12,7 @@ Install [composer](https://getcomposer.org/) if you don't have it already. Then
     composer install
     php run.php
 
-You'll now find your server up and running on [http://127.0.0.1:7355/](http://127.0.0.1:7355/).
+You'll now find your server up and running on [http://127.0.0.1:1337/](http://127.0.0.1:1337/).
 Start putting php files in the public directory and you'll find them available at that URL.
 
 ##Caveats

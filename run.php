@@ -75,5 +75,5 @@ $socket = new React\Socket\Server($loop);
 $http = new React\Http\Server($socket, $loop);
 
 $http->on('request', $request_handler);
-$socket->listen(7355);
+$socket->listen(1337);
 $loop->run();
