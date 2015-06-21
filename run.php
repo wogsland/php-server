@@ -12,15 +12,31 @@ function logger ($request) {
 }
 
 // form responses
-function responder ($response) {
-  $response->writeHead(200, array('Content-Type'=>'text/plain'));
-  $response->end('Nothing to see here');
+function responder ($request, $response) {
+  $response->writeHead(200, array('Content-Type'=>'text/html'));
+  //$response->end('Nothing to see here');
+  $filename = ltrim($request->getPath(), '/');
+  if (strpos($filename,'.php') === false) {
+    $response->end('Nothing but php yet.');
+  } else {
+    if (file_exists(__DIR__.'/public/'.$filename)) {
+      $file = fopen(__DIR__.'/public/'.$filename, 'r');
+      ob_start();
+      while ($line = fgets($file)) {
+        eval($line);
+      }
+      $response->end(ob_get_contents());
+      ob_end_clean();
+    } else {
+      $response->end('File '.$filename.' does not exist.');
+    }
+  }
 }
 
 // handle requests
 function request_handler ($request, $response) {
   logger($request);
-  responder($response);
+  responder($request, $response);
 }
 $request_handler = 'request_handler';
 
