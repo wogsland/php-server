@@ -1,2 +1,12 @@
+# Composer #
+############
 /composer.lock
 /vendor
+
+# System Files #
+################
+.DS_Store
+
+# Server #
+##########
+access.log

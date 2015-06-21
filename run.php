@@ -4,9 +4,23 @@ ini_set('display_errors','On');
 
 require_once(__DIR__.'/vendor/autoload.php');
 
-function request_handler ($request, $response) {
+// log requests
+function logger ($request) {
+  $log = fopen('access.log', 'a');
+  fwrite($log, "{$request->getMethod()}: {$request->getPath()}\n");
+  fclose($log);
+}
+
+// form responses
+function responder ($response) {
   $response->writeHead(200, array('Content-Type'=>'text/plain'));
   $response->end('Nothing to see here');
+}
+
+// handle requests
+function request_handler ($request, $response) {
+  logger($request);
+  responder($response);
 }
 $request_handler = 'request_handler';
 
