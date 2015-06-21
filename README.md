@@ -3,7 +3,7 @@ PHP Server
 
 Javascript has Node.js, shouldn't php have something?
 
-Okay so I know about hhvm, but this sounded like phun.
+Okay so I know about [hhvm](https://github.com/facebook/hhvm), but this sounded like phun.
 
 ##Installation
 
@@ -17,7 +17,7 @@ Start putting php files in the public directory and you'll find them available a
 
 ##Caveats
 
-1. Nothing that takes more than 1 line is supported. You'll need to minimize your class files before using them.
+1. Nothing that takes more than 1 line is supported. You'll need to minimize your class and function files before using them.
 2. ```die();```  and ```exit;``` will also shut down your server.
 3. Nothing other than php files are supported.
 3. Others???
