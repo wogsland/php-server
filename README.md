@@ -1,6 +1,8 @@
 PHP Server
 ==========
 
+[![Code Climate](https://codeclimate.com/github/wogsland/php-server/badges/gpa.svg)](https://codeclimate.com/github/wogsland/php-server)
+
 Javascript has Node.js, shouldn't php have something?
 
 Okay so I know about [hhvm](https://github.com/facebook/hhvm), but this sounded like phun.
