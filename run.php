@@ -1,6 +1,7 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors','On');
+date_default_timezone_set('America/Chicago');
 
 require_once(__DIR__.'/vendor/autoload.php');
 
@@ -22,8 +23,28 @@ function responder ($request, $response) {
     if (file_exists(__DIR__.'/public/'.$filename)) {
       $file = fopen(__DIR__.'/public/'.$filename, 'r');
       ob_start();
+      $php_eval = false;
       while ($line = fgets($file)) {
-        eval($line);
+        if (($start = strpos($line, '<?php')) !== false && ($finish = strpos($line, '?>')) !== false) {
+          // inline php
+          echo substr($line, 0, $start)."\n";
+          eval(substr($line, $start + 5, $finish-$start-5));
+          echo substr($line, $finish+2);
+        } else {
+          if (strpos($line, '<?php') !== false) {
+            $php_eval = true;
+            continue;
+          }
+          if (strpos($line, '?>') !== false) {
+            $php_eval = false;
+            continue;
+          }
+          if ($php_eval) {
+            eval($line);
+          } else {
+            echo $line;
+          }
+        }
       }
       $response->end(ob_get_contents());
       ob_end_clean();
