@@ -1,11 +1,11 @@
-PHP Server
+Phun
 ==========
 
 [![Code Climate](https://codeclimate.com/github/wogsland/php-server/badges/gpa.svg)](https://codeclimate.com/github/wogsland/php-server)
 
-Javascript has Node.js, shouldn't php have something?
+Javascript has Node.js, shouldn't PHP have something?
 
-Okay so I know about [hhvm](https://github.com/facebook/hhvm), but this sounded like phun.
+Okay so I know about [hhvm](https://github.com/facebook/hhvm), but this sounded like phun. And it's written ENTIRELY in PHP.
 
 ##Installation
 
