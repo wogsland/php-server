@@ -10,3 +10,7 @@
 # Server #
 ##########
 access.log
+
+# Testing #
+###########
+/reports
